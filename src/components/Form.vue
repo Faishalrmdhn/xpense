@@ -41,17 +41,7 @@ export default {
                 price: null,
                 date: null
             },
-            // onDisabled: false
         }
-    },
-    watch:{
-        // onDisabled(){
-        //     if (this.formData.desc == null || this.formData.price == null || this.formData.date == null){
-        //         return true
-        //     } else {
-        //         return false
-        //     }
-        // }
     },
     methods:{
         onSubmit(){

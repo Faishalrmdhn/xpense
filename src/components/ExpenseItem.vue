@@ -17,7 +17,7 @@
           </v-col>
           <v-col cols="4">
               {{expenseDetail.date}}
-              <span>
+              <span @click="deleteItem(expenseDetail.id)">
                   <v-icon
                     dark
                     right
@@ -35,18 +35,12 @@ export default {
     props:{
         expenseDetail : Object
     },
-    // computed:{
-    //     formatDate(){
-    //         let date = new Date(this.expenseDetail.date)
-    //         let day = date.getDate()
-    //         let month = date.getMonth()
-    //         let year = date.getFullYear()
-
-    //         let formattedDate = day + '/' + month + '/' + year;
-    //         return formattedDate
-    //     }
-        
-    // }
+    methods:{
+        deleteItem(val){
+            console.log(val)
+            this.$emit('delete-item', val)
+        }
+    }
 }
 </script>
 

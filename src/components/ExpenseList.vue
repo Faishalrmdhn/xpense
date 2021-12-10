@@ -4,7 +4,7 @@
       <v-row justify="center">
           <v-col cols="12">
               <!-- {{expense}} -->
-              <ExpenseItem v-for="a in expense" :key="a.id" :expenseDetail="a"/>
+              <ExpenseItem v-for="a in expense" :key="a.id" :expenseDetail="a" @delete-item="deleteItem"/>
           </v-col>
       </v-row>
   </v-container>
@@ -19,6 +19,11 @@ export default {
     props:{
         expense : Array
         // sortedExpenseFinal : Array
+    },
+    methods:{
+        deleteItem(val){
+            this.$emit('remove-item', val)
+        }
     }
 }
 </script>

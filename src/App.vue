@@ -11,17 +11,6 @@
 
       <v-spacer></v-spacer>
 
-      <!-- <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn> -->
-      <!-- <v-btn color='warning'>
-        WADIDAWWWWW
-      </v-btn> -->
       <div class="total">
         Rp. {{totalExpense}}
       </div>
@@ -29,7 +18,7 @@
 
     <v-main>
       <Form class="mt-2" @add-expense='addExpense' />
-      <ExpenseList :expense='expense'/>
+      <ExpenseList :expense='expense' @remove-item="removeItem"/>
     </v-main>
   </v-app>
 </template>
@@ -91,10 +80,9 @@ export default {
         price : parseInt(val.price),
         date : val.date
       }]
-      // console.log(this.expense)
     },
     removeItem(id) {
-      this.income = this.income.filter(data => data.id != id);
+      this.expense = this.expense.filter(data => data.id != id);
     }
   }
   
